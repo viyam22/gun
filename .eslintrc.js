@@ -17,7 +17,9 @@ module.exports = {
     "object-curly-spacing": 0,
     "no-trailing-spaces": 0,
     "spaced-comment": 0,
-    "array-bracket-spacing": 0
+    "array-bracket-spacing": 0,
+    "space-before-function-paren": 0,
+    "semi": 0,
   },
   globals: {}
 }

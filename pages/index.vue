@@ -2,15 +2,19 @@
   <section class="container">
     <div>
       <logo/>
-      <h1 class="title">
-        gun
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+      <div>
+        <div>
+          <label>用户名：<input type="text" placeholder="用户名" v-model="nickname" name=""></label>
+          <label>邮箱：<input type="text" placeholder="邮箱" v-model="email" name=""></label>
+          <label>邮箱验证码：<input type="text" placeholder="邮箱验证码" v-model="emailCode" name=""></label>
+          <label>密码：<input type="password" placeholder="密码" v-model="password" name=""></label>
+          <button @click="signup">注册</button>
+        </div>
+        <div>
+          <label>账号：<input type="text" v-model="nickname" placeholder="用户名或邮箱" name=""></label>
+          <label>密码：<input type="password" v-model="password" placeholder="密码" name=""></label>
+          <button @click="signin">登录</button>
+        </div>
       </div>
     </div>
   </section>
@@ -20,6 +24,38 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  async mounted() {
+    const { data } = await this.$get('/')
+    console.log(data);
+  },
+  data() {
+    return {
+      nickname: '',
+      password: '',
+      email: '',
+      emailCode: ''
+    }
+  },
+  methods: {
+    async signin() {
+      const { data } = await this.$axios.post('/signin', {
+        nickname: this.nickname,
+        email: this.email,
+        password: this.password
+      })
+
+      console.log(data);
+    },
+    async signup() {
+      const { data } = await this.$post('/signup', {
+        nickname: this.nickname,
+        email: this.email,
+        emailCode: this.emailCode,
+        password: this.password
+      })
+      console.log(data);
+    }
+  },
   components: {
     Logo
   }
@@ -28,31 +64,10 @@ export default {
 
 <style>
 .container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  padding: 20px;
 }
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
+label {
   display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  margin-bottom: 20px;
 }
 </style>

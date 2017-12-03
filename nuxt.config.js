@@ -17,9 +17,9 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
+  plugins: [
+    '~plugins/axios.js'
+  ],
   build: {
     /*
     ** Run ESLint on save
