@@ -1,7 +1,9 @@
 <template>
   <section class="container">
     <div>
-      <logo/>
+      <div v-if="userData">
+        <p>{{userData.nickname}}</p>
+      </div>
       <div>
         <div>
           <label>用户名：<input type="text" placeholder="用户名" v-model="nickname" name=""></label>
@@ -21,12 +23,14 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapState } from 'vuex';
 
 export default {
-  async mounted() {
-    const { data } = await this.$get('/')
-    console.log(data);
+  async created() {
+    if (process.browser && !this.userData) {
+      const { data } = await this.$get('/');
+      if (data) this.$store.commit('setUserData', data);
+    }
   },
   data() {
     return {
@@ -36,15 +40,17 @@ export default {
       emailCode: ''
     }
   },
-  methods: {
+  methods: {  
     async signin() {
-      const { data } = await this.$axios.post('/signin', {
+      const { data } = await this.$post('/signin', {
         nickname: this.nickname,
         email: this.email,
         password: this.password
       })
 
-      console.log(data);
+      if (data.msg.success) {
+        this.$store.commit('setUserData', data.userData);
+      }
     },
     async signup() {
       const { data } = await this.$post('/signup', {
@@ -53,11 +59,13 @@ export default {
         emailCode: this.emailCode,
         password: this.password
       })
-      console.log(data);
+      if (data.msg.success) {
+        this.$store.commit('setUserData', data.userData);
+      }
     }
   },
-  components: {
-    Logo
+  computed: {
+    ...mapState(['userData'])
   }
 }
 </script>

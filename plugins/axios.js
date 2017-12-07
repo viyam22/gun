@@ -11,7 +11,7 @@ function getToken() {
   return document.cookie.split('=')[1];
 }
 
-axios.defaults.baseURL = 'http://api.gun.com';
+axios.defaults.baseURL = 'http://api.gun.yefun.top';
 axios.defaults.withCredentials = true;
 
 for (let method in axios.defaults.headers) {
@@ -35,3 +35,5 @@ Vue.mixin({
     }
   }
 });
+
+export { axios };
