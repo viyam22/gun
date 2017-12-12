@@ -3,7 +3,21 @@
     <nuxt/>
   </div>
 </template>
+<script type="text/javascript">
+import { mapState } from 'vuex';
 
+export default {
+  async created() {
+    if (process.browser && !this.userData) {
+      const { data } = await this.$get('/');
+      if (data) this.$store.commit('setUserData', data);
+    }
+  },
+  computed: {
+    ...mapState(['userData'])
+  }
+}
+</script>
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
