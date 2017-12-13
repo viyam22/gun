@@ -13,8 +13,13 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "axios": "^0.17.1",
-    "nuxt": "^1.0.0-rc11"
+    "flexible": "^0.1.20",
+    "forever-agent": "^0.6.1",
+    "nuxt": "^1.0.0-rc11",
+    "pg": "^7.4.0",
+    "pgpass": "^1.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

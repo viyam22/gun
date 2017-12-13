@@ -11,14 +11,15 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
   },
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
   plugins: [
-    '~plugins/axios.js'
+    '~plugins/axios.js',
+    { src: '~plugins/flexible.js', ssr: false }
   ],
   build: {
     /*
