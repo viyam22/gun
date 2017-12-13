@@ -1,13 +1,29 @@
 <template>
   <div>
-    <h1>登录</h1>
-    <div>
-      <label>账号：<input type="text" v-model="nickname" placeholder="用户名或邮箱" name=""></label>
-      <label>密码：<input type="password" v-model="password" placeholder="密码" name=""></label>
-      <button @click="signin">登录</button>
-    </div>
+    <h4 class="title">
+        <div class="normal-title">
+            <nuxt-link to="/sign/in" class="active">登陆</nuxt-link>
+            <b>·</b>
+            <nuxt-link to="/sign/up">注册</nuxt-link>
+        </div>
+    </h4>
+    <form class="sign-in-container">
+        <div class="input-sign">
+            <input type="" name="" placeholder="邮箱">
+        </div>
+        <div class="input-sign input-especially">
+            <input type="" name="" placeholder="密码">
+        </div>
+        <div class="remember-button">
+            <input type="checkbox" name="session[remember_me]" value="true" checked="checked" class="remember-check">
+            <span class="remember-text">记住我</span>
+        </div>
+        <nuxt-link to="" class="problem-link">登陆遇到问题？</nuxt-link>
+        <div class="sign-button sign-in">登陆</div>
+    </form>
   </div>
 </template>
+
 <script>
 export default {
   layout: 'sign',
@@ -31,5 +47,5 @@ export default {
       }
     }
   }
-}
+};
 </script>

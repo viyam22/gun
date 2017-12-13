@@ -1,17 +1,32 @@
 <template>
   <div>
-    <h1>注册</h1>
-    <div>
-    <label>用户名：<input type="text" placeholder="用户名" v-model="nickname" name=""></label>
-    <label>邮箱：<input type="text" placeholder="邮箱" v-model="email" name=""></label>
-    <label>邮箱验证码：<input type="text" placeholder="邮箱验证码" v-model="emailCode" name=""></label>
-    <label>密码：<input type="password" placeholder="密码" v-model="password" name=""></label>
-    <button @click="signup">注册</button>
+    <h4 class="title">
+        <div class="normal-title">
+            <nuxt-link to="/sign/in">登陆</nuxt-link>
+            <b>·</b>
+            <nuxt-link to="/sign/up" class="active">注册</nuxt-link>
+        </div>
+    </h4>
+    <form class="sign-in-container">
+        <div class="input-sign">
+            <input type="" name="" placeholder="昵称">
+        </div>
+        <div class="input-sign">
+            <input type="" name="" placeholder="邮箱">
+        </div>
+        <div class="input-sign input-especially">
+            <input type="" name="" placeholder="密码">
+        </div>
+        <div class="sign-button sign-up">注册</div>
+        <div class="sign-tip">点击“注册”即表示您同意接受GUN的操控 :) </div>
+    </form>
   </div>
-</div>
 </template>
 <script>
+
+
 export default {
+  layout: 'sign',
   data() {
     return {
       nickname: '',
@@ -33,5 +48,5 @@ export default {
       }
     }
   }
-}
+};
 </script>

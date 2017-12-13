@@ -10,7 +10,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//at.alicdn.com/t/font_507632_krrovy3yg50qw7b9.css' }
     ]
   },
   /*
@@ -18,7 +19,9 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   plugins: [
-    '~plugins/axios.js'
+    '~plugins/axios.js',
+    { src: '~plugins/flexible.js', ssr: false },
+    { src: '~assets/css/index.css', ssr: false },
   ],
   build: {
     /*
