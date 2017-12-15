@@ -18,7 +18,7 @@
             <input type="checkbox" name="session[remember_me]" value="true" checked="checked" class="remember-check">
             <span class="remember-text">记住我</span>
         </div>
-        <nuxt-link to="" class="problem-link">登陆遇到问题？</nuxt-link>
+          <nuxt-link to="" class="problem-link">登陆遇到问题？</nuxt-link>
         <div class="sign-button sign-in">登陆</div>
     </form>
   </div>
