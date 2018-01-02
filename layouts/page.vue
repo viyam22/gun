@@ -51,18 +51,6 @@
 	line-height: 30px;
 	left: 5px;
 }
-
-.to-top-btn {
-	width: 50px;
-	height: 50px;
-	line-height: 48px;
-	border: 1px solid #DCDFE6;
-	position: fixed;
-	bottom: 60px;
-	right: 50px;
-	color: #DCDFE6;
-	text-align: center;
-}
 .main {
 	margin-top: 60px;
 	background-color: #F2F6FC;
@@ -82,10 +70,7 @@
 			<div class="nickname">小仙女</div>
 		</div>
 
-		
-		<a class="to-top-btn" href="#">
-			<i class="iconfont icon-jiantoushang"></i>
-		</a>
+		<back-to-top></back-to-top>
 
 		<div class="main">
 			<nuxt/>
@@ -94,5 +79,9 @@
 </template>
 
 <script>
+import backToTop from '../components/backToTop.vue';
 
+export default {
+  components: { backToTop }
+};
 </script>

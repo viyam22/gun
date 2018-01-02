@@ -8,6 +8,7 @@
       <div v-else>
         <nuxt-link to="/sign/in">登录</nuxt-link>
         <nuxt-link to="/sign/up">注册</nuxt-link>
+        
       </div>
       <div>
       </div>
