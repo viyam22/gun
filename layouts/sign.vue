@@ -96,7 +96,7 @@ form .input-especially input {
   }
 }
 
- @media (max-width: 769px) {
+@media (max-width: 769px) {
   .sign .main {
     width: 9.661836rem;
   }
