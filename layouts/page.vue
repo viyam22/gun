@@ -9,6 +9,8 @@
   position: fixed;
   top: 0;
   background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
 }
 .logo {
   float: left;
@@ -53,7 +55,6 @@
 }
 .main {
   margin-top: 60px;
-  background-color: #F2F6FC;
 }
 </style>
 
@@ -80,8 +81,9 @@
 </template>
 
 <script>
-import backToTop from '../components/backToTop.vue';
-import toast from '../components/toast.vue';
+import backToTop from '~/components/backToTop.vue';
+import toast from '~/components/toast.vue';
+
 
 export default {
   components: { toast, backToTop },

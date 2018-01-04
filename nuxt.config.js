@@ -22,6 +22,7 @@ module.exports = {
     '~plugins/axios.js',
     { src: '~plugins/flexible.js', ssr: false },
     { src: '~assets/css/index.css', ssr: false },
+    { src: '~components/newsList', ssr: false }
   ],
   build: {
     /*
